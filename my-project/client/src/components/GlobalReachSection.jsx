@@ -5,12 +5,12 @@ const regions = [
   {
     title: "India",
     description:
-      "Headquarters in Ernakulam, Kerala. Deep expertise in Indian labour codes and extensive startup networks across Bengaluru, Mumbai, Delhi-NCR, Hyderabad.",
+      "Headquarters in Ernakulam, Kerala. Deep expertise in Indian labour codes and extensive startup networks across Bengaluru, Mumbai, Delhi-NCR, and Hyderabad.",
   },
   {
     title: "Middle East",
     description:
-      "Coverage across UAE, Saudi Arabia and Egypt. Expertise in labour-card, visa-sponsorship, end-of-service gratuity, and Emiratisation.",
+      "Coverage across UAE, Saudi Arabia and Egypt. Expertise in labour-card, visa-sponsorship, end-of-service gratuity and Emiratisation.",
   },
   {
     title: "United States",
@@ -26,87 +26,49 @@ const regions = [
 
 const GlobalReachSection = () => {
   return (
-    <section
-      style={{
-        background: "#FFFFFF",
-        padding: "140px 0",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1320px",
-          margin: "0 auto",
-          padding: "0 32px",
-        }}
-      >
+    <section className="bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{
-            textAlign: "center",
-            marginBottom: "90px",
-          }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <motion.div
-            animate={{
-              rotate: 360,
-            }}
+            animate={{ rotate: 360 }}
             transition={{
               duration: 20,
               repeat: Infinity,
               ease: "linear",
             }}
-            style={{
-              display: "inline-flex",
-              marginBottom: "28px",
-            }}
+            className="inline-flex mb-5"
           >
-            <Globe size={42} color="#B57984" />
+            <div className="w-12 h-12 rounded-full bg-[#FFF7F0] border border-[#E9DFD6] flex items-center justify-center">
+              <Globe size={22} color="#B57984" />
+            </div>
           </motion.div>
 
-          <h2
-            style={{
-              color: "#00285C",
-              fontSize: "50px",
-              fontWeight: 500,
-              lineHeight: 1.1,
-              marginBottom: "18px",
-            }}
-          >
+          <h2 className="text-[#00285C] text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.2rem] font-semibold leading-tight mb-3">
             Four Regions. One Operating Reality.
           </h2>
 
-          <p
-            style={{
-              color: "#7C8796",
-              fontSize: "18px",
-              lineHeight: 1.8,
-            }}
-          >
-            India · Middle East · United States · Europe
+          <p className="text-[#7C8796] text-sm sm:text-base md:text-lg leading-7">
+            India ✦ Middle East ✦ United States ✦ Europe 
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Region Cards */}
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "28px",
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
           {regions.map((region, index) => (
             <motion.div
               key={region.title}
               initial={{
                 opacity: 0,
-                y: 60,
+                y: 40,
               }}
               whileInView={{
                 opacity: 1,
@@ -114,44 +76,34 @@ const GlobalReachSection = () => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.12,
+                duration: 0.5,
+                delay: index * 0.08,
               }}
               whileHover={{
-                y: -10,
+                y: -8,
                 scale: 1.02,
               }}
-              style={{
-                background: "#FFF7F0",
-                border: "1px solid #E9DFD6",
-                borderRadius: "28px",
-                padding: "34px",
-                minHeight: "240px",
-                cursor: "pointer",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-                transition: "all 0.3s ease",
-              }}
+              className="
+                bg-[#FFF7F0]
+                border
+                border-[#E9DFD6]
+                rounded-2xl
+                p-5
+                sm:p-6
+                min-h-[220px]
+                shadow-[0_8px_24px_rgba(0,0,0,0.04)]
+                hover:shadow-[0_20px_40px_rgba(0,43,91,0.08)]
+                hover:border-[#D8C0B6]
+                transition-all
+                duration-300
+                cursor-pointer
+              "
             >
-              <h3
-                style={{
-                  color: "#00285C",
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  marginBottom: "16px",
-                  lineHeight: 1.4,
-                }}
-              >
+              <h3 className="text-[#00285C] text-lg sm:text-xl font-bold mb-3">
                 {region.title}
               </h3>
 
-              <p
-                style={{
-                  color: "#7C8796",
-                  fontSize: "16px",
-                  lineHeight: 1.8,
-                  margin: 0,
-                }}
-              >
+              <p className="text-[#7C8796] text-sm sm:text-[15px] leading-7">
                 {region.description}
               </p>
             </motion.div>

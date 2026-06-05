@@ -1,9 +1,13 @@
 import { UserRoundKey } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section
+      id="home"
       style={{
         background: "#001F4D",
         minHeight: "100vh",
@@ -11,15 +15,14 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: "40px",
+        padding: "120px 20px 80px",
       }}
     >
       <div
         style={{
-          width: "95%",
+          width: "100%",
           maxWidth: "1600px",
           margin: "0 auto",
-          padding: "0 30px",
         }}
       >
         <div className="flex flex-col items-center text-center">
@@ -30,11 +33,11 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             style={{
               color: "#7E8CA8",
-              fontSize: "15px",
-              letterSpacing: "6px",
+              fontSize: "13px",
+              letterSpacing: "4px",
               textTransform: "uppercase",
-              marginBottom: "50px",
-              fontWeight: 400,
+              marginBottom: "40px",
+              fontWeight: 500,
               fontFamily: "Manrope, sans-serif",
             }}
           >
@@ -50,7 +53,7 @@ const Hero = () => {
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{
-              marginBottom: "45px",
+              marginBottom: "40px",
             }}
           >
             <h1
@@ -61,41 +64,37 @@ const Hero = () => {
                 justifyContent: "center",
                 lineHeight: 1,
                 fontFamily: "Manrope, sans-serif",
+                flexWrap: "wrap",
               }}
             >
-              {/* EDEN */}
               <span
                 style={{
                   color: "#C98792",
-                  fontSize: "120px",
-                  fontWeight: 700,
-                  letterSpacing: "-8px",
+                  fontSize: "clamp(60px, 10vw, 110px)",
+                  fontWeight: 600,
+                  letterSpacing: "-6px",
                 }}
               >
                 eden
               </span>
 
-              {/* HIRE */}
               <span
                 style={{
                   color: "#F5EFE8",
-                  fontSize: "120px",
-                  fontWeight: 500,
-                  letterSpacing: "-8px",
+                  fontSize: "clamp(60px, 10vw, 110px)",
+                  fontWeight: 300,
+                  letterSpacing: "-6px",
                 }}
               >
                 hire
               </span>
 
-              {/* .AI */}
               <span
                 style={{
                   color: "#F5EFE8",
-                  fontSize: "50px",
+                  fontSize: "clamp(28px,4vw,48px)",
                   fontWeight: 400,
-                  letterSpacing: "-1px",
-                  marginLeft: "4px",
-                  marginBottom: "12px",
+                  marginBottom: "10px",
                 }}
               >
                 .ai
@@ -106,7 +105,7 @@ const Hero = () => {
           {/* Divider */}
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "480px" }}
+            animate={{ width: "min(480px,80vw)" }}
             transition={{
               delay: 0.3,
               duration: 1,
@@ -114,11 +113,11 @@ const Hero = () => {
             style={{
               height: "1px",
               background: "#C98792",
-              marginBottom: "55px",
+              marginBottom: "50px",
             }}
           />
 
-          {/* Main Heading */}
+          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
@@ -131,14 +130,14 @@ const Hero = () => {
               style={{
                 margin: 0,
                 fontFamily: "Manrope, sans-serif",
-                lineHeight: "1.08",
+                lineHeight: "1.1",
               }}
             >
               <span
                 style={{
                   display: "block",
                   color: "#F5EFE8",
-                  fontSize: "62px",
+                  fontSize: "clamp(38px,5vw,60px)",
                   fontWeight: 300,
                   letterSpacing: "-2px",
                 }}
@@ -150,10 +149,10 @@ const Hero = () => {
                 style={{
                   display: "block",
                   color: "#C98792",
-                  fontSize: "62px",
+                  fontSize: "clamp(38px,5vw,60px)",
                   fontWeight: 300,
                   letterSpacing: "-2px",
-                  marginTop: "8px",
+                  marginTop: "10px",
                 }}
               >
                 We build the team.
@@ -171,10 +170,13 @@ const Hero = () => {
             }}
             style={{
               color: "#7E8CA8",
-              fontSize: "18px",
+              fontSize: "clamp(15px,2vw,18px)",
               lineHeight: "1.8",
-              marginTop: "40px",
+              marginTop: "35px",
               marginBottom: "50px",
+              maxWidth: "700px",
+              padding: "0 20px",
+              textAlign: "center",
               fontFamily: "Manrope, sans-serif",
             }}
           >
@@ -183,7 +185,7 @@ const Hero = () => {
 
           {/* Buttons */}
           <motion.div
-            className="flex flex-col md:flex-row gap-5"
+            className="flex flex-col lg:flex-row gap-4 w-full justify-center items-center"
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -195,21 +197,26 @@ const Hero = () => {
             <motion.button
               whileHover={{
                 scale: 1.03,
+                y: -2,
               }}
               whileTap={{
                 scale: 0.98,
               }}
+              onClick={() => navigate("/hiring")}
               style={{
-                width: "320px",
-                height: "76px",
+                width: "100%",
+                maxWidth: "280px",
+                height: "64px",
                 borderRadius: "999px",
                 border: "none",
-                background: "#C98792",
+                background:
+                  "linear-gradient(135deg,#C98792 0%, #B57984 100%)",
                 color: "#FFFFFF",
-                fontSize: "22px",
+                fontSize: "18px",
                 fontWeight: 600,
                 cursor: "pointer",
                 fontFamily: "Manrope, sans-serif",
+                boxShadow: "0 12px 30px rgba(201,135,146,0.25)",
               }}
             >
               I'm Hiring →
@@ -219,25 +226,29 @@ const Hero = () => {
             <motion.button
               whileHover={{
                 scale: 1.03,
+                y: -2,
               }}
               whileTap={{
                 scale: 0.98,
               }}
+              onClick={() => navigate("/role")}
               className="flex items-center justify-center gap-3"
               style={{
-                width: "520px",
-                height: "76px",
+                width: "100%",
+                maxWidth: "380px",
+                height: "64px",
                 borderRadius: "999px",
-                background: "transparent",
-                border: "1px solid rgba(255,255,255,0.18)",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.15)",
                 color: "#F5EFE8",
-                fontSize: "22px",
+                fontSize: "18px",
                 fontWeight: 500,
                 cursor: "pointer",
                 fontFamily: "Manrope, sans-serif",
+                backdropFilter: "blur(10px)",
               }}
             >
-              <UserRoundKey size={24} />
+              <UserRoundKey size={20} />
               I'm Looking for a Role
             </motion.button>
           </motion.div>

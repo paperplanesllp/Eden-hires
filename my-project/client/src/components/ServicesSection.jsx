@@ -5,189 +5,148 @@ const services = [
     number: "01",
     title: "Talent Acquisition & Recruitment Architecture",
     description:
-      "Strategic talent thesis to offer management. Multi-channel proactive sourcing, structured interview frameworks, competency-based evaluation, and onboarding programmes designed to accelerate time-to-productivity.",
+      "Strategic talent thesis to offer management. Multi-channel sourcing, structured interviews, competency-based evaluation, and onboarding programs.",
   },
   {
     number: "02",
     title: "Payroll Architecture & Compensation Management",
     description:
-      "End-to-end payroll design, multi-jurisdiction compliance, compensation benchmarking, review cycle management, and equity plan design — options to RSUs to performance shares.",
+      "End-to-end payroll design, compliance management, compensation benchmarking, review cycles, and equity plan structuring.",
   },
   {
     number: "03",
     title: "HR Compliance & Regulatory Risk Management",
     description:
-      "Comprehensive HR Compliance Audit across all relevant jurisdictions, prioritised remediation roadmaps, continuous regulatory monitoring, and employment classification risk analysis.",
+      "HR audits, remediation planning, regulatory monitoring, and employment classification risk analysis.",
   },
   {
     number: "04",
     title: "Performance Management & Organisational Development",
     description:
-      "OKR framework design, continuous feedback infrastructure, manager development programmes, and rigorous organisational design for startups scaling through each stage of growth.",
+      "OKR systems, feedback frameworks, manager development, and organisational design for scaling startups.",
   },
   {
     number: "05",
     title: "Culture Design & Employee Engagement",
     description:
-      "Honest culture diagnostics, values-to-behaviour translation, engagement monitoring, and evidence-based DEI strategies that address underlying systems — not just representation metrics.",
+      "Culture diagnostics, values implementation, engagement measurement, and sustainable DEI frameworks.",
   },
   {
     number: "06",
     title: "Policy Development & HR Documentation",
     description:
-      "Complete HR policy suites built from scratch — employment contracts, handbooks, disciplinary procedures, remote work frameworks, data privacy policies, equity documentation, and more.",
+      "Employment contracts, handbooks, disciplinary procedures, remote work policies, and compliance documentation.",
   },
   {
     number: "07",
     title: "Training, Development & Leadership Acceleration",
     description:
-      "Evidence-based development programmes with special emphasis on first-time managers in startup environments — the most critical and most underserved leadership layer.",
+      "Leadership programs focused on startup teams, first-time managers, and high-growth environments.",
   },
   {
     number: "08",
     title: "HR Strategy & Workforce Planning",
     description:
-      "Strategic HR perspective historically reserved for large corporations. Workforce plans genuinely integrated with business strategy — unified frameworks where talent and business decisions are made together.",
+      "Strategic workforce planning aligned with business goals, growth stages, and long-term organisational success.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section
-      style={{
-        background: "#FFF7F0",
-        padding: "120px 0",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 32px",
-        }}
-      >
+    <section className="bg-[#FFF7F0] py-20 md:py-24 lg:py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
         {/* Heading */}
-
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          style={{
-            textAlign: "center",
-            maxWidth: "900px",
-            margin: "0 auto 90px",
-          }}
+          className="text-center max-w-4xl mx-auto mb-14 md:mb-20"
         >
-          <p
-            style={{
-              color: "#B57984",
-              fontSize: "18px",
-              fontWeight: 500,
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
-            }}
-          >
+          <p className="uppercase tracking-[4px] text-[#B57984] text-xs md:text-sm font-semibold mb-4">
             Full Spectrum HR
           </p>
 
-          <h2
-            style={{
-              color: "#00285C",
-              fontSize: "64px",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              marginBottom: "24px",
-            }}
-          >
+          <h2 className="text-[#00285C] font-semibold leading-tight text-3xl md:text-5xl lg:text-6xl mb-5">
             Eight pillars. One partner.
           </h2>
 
-          <p
-            style={{
-              color: "#7C8796",
-              fontSize: "32px",
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="text-[#7C8796] text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
             Comprehensive HR for startups — from foundational
-            infrastructure to the most sophisticated strategic
-            interventions.
+            infrastructure to sophisticated strategic interventions.
           </p>
         </motion.div>
 
         {/* Cards */}
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "28px",
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {services.map((item, index) => (
             <motion.div
               key={index}
               initial={{
                 opacity: 0,
-                y: 50,
+                y: 40,
               }}
               whileInView={{
                 opacity: 1,
                 y: 0,
               }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.08,
+                duration: 0.5,
+                delay: index * 0.05,
               }}
               viewport={{ once: true }}
               whileHover={{
-                y: -10,
+                y: -8,
                 scale: 1.02,
               }}
-              style={{
-                background: "#F9F2EC",
-                border: "1px solid #E7DCD2",
-                borderRadius: "28px",
-                padding: "34px",
-                display: "flex",
-                gap: "22px",
-                minHeight: "210px",
-                cursor: "pointer",
-                transition: "all .3s ease",
-              }}
+              className="group"
             >
               <div
                 style={{
-                  color: "#E2CBC7",
-                  fontSize: "48px",
-                  fontWeight: 700,
-                  minWidth: "60px",
-                  lineHeight: 1,
+                  background: "rgba(255,255,255,0.75)",
+                  border: "1px solid rgba(0,40,92,0.08)",
+                  borderRadius: "22px",
+                  padding: "24px",
+                  height: "100%",
+                  minHeight: "240px",
+                  backdropFilter: "blur(14px)",
+                  boxShadow: "0 10px 30px rgba(0,40,92,0.05)",
+                  transition: "all .35s ease",
                 }}
+                className="group-hover:border-[#B57984]/30 group-hover:shadow-xl"
               >
-                {item.number}
-              </div>
+                {/* Number */}
+                <div
+                  style={{
+                    color: "#D9C2BD",
+                    fontSize: "32px",
+                    fontWeight: 700,
+                    lineHeight: 1,
+                    marginBottom: "18px",
+                  }}
+                >
+                  {item.number}
+                </div>
 
-              <div>
+                {/* Title */}
                 <h3
                   style={{
                     color: "#00285C",
-                    fontSize: "18px",
+                    fontSize: "16px",
                     fontWeight: 700,
-                    lineHeight: 1.4,
+                    lineHeight: "1.5",
                     marginBottom: "12px",
                   }}
                 >
                   {item.title}
                 </h3>
 
+                {/* Description */}
                 <p
                   style={{
                     color: "#7C8796",
-                    fontSize: "16px",
-                    lineHeight: 1.8,
+                    fontSize: "14px",
+                    lineHeight: "1.8",
                   }}
                 >
                   {item.description}

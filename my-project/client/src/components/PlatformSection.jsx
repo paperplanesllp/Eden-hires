@@ -53,179 +53,92 @@ const platformCards = [
   },
 ];
 
-
-
-const sectionStyle = {
-  backgroundColor: "#FFFFFF",
-  padding: "120px 0",
-};
-
-const containerStyle = {
-  maxWidth: "1320px",
-  margin: "0 auto",
-  padding: "0 32px",
-};
-
-/* Header */
-
-const headerWrapperStyle = {
-  maxWidth: "1200px",
-  margin: "0 auto 90px",
-  textAlign: "center",
-};
-
-const platformLabelStyle = {
-  maxWidth: "300px",
-  margin: "0 auto 24px",
-  color: "#B57984",
-  fontSize: "18px",
-  letterSpacing: "5px",
-  textTransform: "uppercase",
-  fontWeight: 500,
-};
-
-const headingStyle = {
-  maxWidth: "1000px",
-  margin: "0 auto 32px",
-  color: "#00285C",
-  fontSize: "60px",
-  fontWeight: 500,
-  lineHeight: 1.1,
-};
-
-const descriptionStyle = {
-  maxWidth: "950px",
-  margin: "0 auto",
-  color: "#7C8796",
-  fontSize: "18px",
-  lineHeight: 1.8,
-};
-
-/* Grid */
-
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "28px",
-};
-
-/* Card */
-
-const cardStyle = {
-  background: "#FFF7F0",
-  border: "1px solid #E9DFD6",
-  borderRadius: "28px",
-  padding: "30px",
-  minHeight: "280px",
-  cursor: "pointer",
-  boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-};
-
-const iconWrapperStyle = {
-  width: "52px",
-  height: "52px",
-  borderRadius: "14px",
-  background: "#FFFFFF",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginBottom: "26px",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-};
-
-const cardLabelStyle = {
-  color: "#8AA06B",
-  fontSize: "14px",
-  fontWeight: 600,
-  letterSpacing: "1px",
-  textTransform: "uppercase",
-  marginBottom: "10px",
-};
-
-const cardTitleStyle = {
-  color: "#00285C",
-  fontSize: "20px",
-  fontWeight: 700,
-  lineHeight: 1.4,
-  marginBottom: "14px",
-};
-
-const cardDescriptionStyle = {
-  color: "#7C8796",
-  fontSize: "16px",
-  lineHeight: 1.8,
-  margin: 0,
-};
-
-/* ===================================
-   COMPONENT
-=================================== */
-
 const PlatformSection = () => {
   return (
-    <section style={sectionStyle}>
-      <div style={containerStyle}>
+    <section className="bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
-
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={headerWrapperStyle}
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <p style={platformLabelStyle}>
-            THE PLATFORM
+          <p className="text-[#B57984] text-[11px] sm:text-xs md:text-sm tracking-[4px] uppercase font-semibold mb-4">
+            The Platform
           </p>
 
-          <h2 style={headingStyle}>
-            edenhire.ai — Eight Intelligences.
-          </h2>
+          <h2 className="leading-tight mb-5">
+  <span
+    className="text-[#B57984] text-[2.3rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem] font-bold">
+    eden
+  </span>
 
-          <p style={descriptionStyle}>
+  <span className="text-[#00285C] text-[1.8rem] sm:text-[2.1rem] md:text-[2.5rem] lg:text-[2.8rem] font-medium">
+    hire.ai
+  </span>
+
+  <span
+    className="text-[#00285C] text-[1.3rem] sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.9rem] font-normal ml-3">
+    — Eight Intelligences.
+  </span>
+</h2>
+
+          <p className="text-[#7C8796] text-sm sm:text-base md:text-sm leading-7 max-w-5xl mx-auto">
             Not a software product that sits alongside our consulting work —
             it is the technological spine of our entire operation.
-            <br />
+            <br className="hidden md:block" />
             Built at the intersection of HR domain expertise and frontier AI
             engineering.
           </p>
         </motion.div>
 
         {/* Cards */}
-
-        <div style={gridStyle}>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
           {platformCards.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.08,
                 }}
+                viewport={{ once: true }}
                 whileHover={{
-                  y: -10,
+                  y: -8,
                   scale: 1.02,
                 }}
-                style={cardStyle}
+                className="
+                  bg-[#FFF7F0]
+                  border border-[#E9DFD6]
+                  rounded-2xl
+                  p-5 sm:p-6
+                  min-h-[220px]
+                  shadow-[0_8px_24px_rgba(0,0,0,0.04)]
+                  hover:shadow-[0_18px_40px_rgba(0,43,91,0.10)]
+                  hover:border-[#D8C0B6]
+                  transition-all
+                  duration-300
+                "
               >
-                <div style={iconWrapperStyle}>
-                  <Icon size={24} color="#B57984" />
+                <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-sm mb-5">
+                  <Icon size={20} color="#B57984" />
                 </div>
 
-                <p style={cardLabelStyle}>
+                <p className="text-[#86B368] text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase mb-2 leading-relaxed">
                   {item.label}
                 </p>
 
-                <h3 style={cardTitleStyle}>
+                <h3 className="text-[#00285C] text-base sm:text-lg font-bold leading-snug mb-3">
                   {item.title}
                 </h3>
 
-                <p style={cardDescriptionStyle}>
+                <p className="text-[#7C8796] text-sm sm:text-[15px] leading-7">
                   {item.description}
                 </p>
               </motion.div>

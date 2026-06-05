@@ -3,120 +3,112 @@ const Footer = () => {
     <footer
       style={{
         backgroundColor: "#FFF7F0",
-        paddingTop: "70px",
-        paddingBottom: "50px",
         borderTop: "4px solid #00285C",
+        fontFamily: "Inter, sans-serif",
       }}
+      className="py-8 md:py-10"
     >
-      <div
-        style={{
-          maxWidth: "1440px",
-          margin: "0 auto",
-          padding: "0 40px",
-        }}
-      >
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 md:px-10">
         {/* Top Section */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: "80px",
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Left */}
-          <div style={{ maxWidth: "550px" }}>
+        <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-14">
+          {/* Left Content */}
+          <div className="max-w-xl">
+            {/* Logo */}
             <h2
               style={{
-                fontSize: "52px",
-                fontWeight: 700,
-                marginBottom: "18px",
                 lineHeight: 1,
-                fontFamily: "Inter, sans-serif",
+                marginBottom: "20px",
               }}
             >
-              <span style={{ color: "#B57984" }}>eden</span>
-              <span style={{ color: "#344054" }}>hire</span>
               <span
                 style={{
-                  color: "#667085",
-                  fontSize: "24px",
-                  verticalAlign: "top",
+                  color: "#B57984",
+                  fontWeight: 800,
                 }}
+                className="text-[34px] sm:text-[40px] md:text-[48px]"
               >
-                .ai
+                eden
+              </span>
+
+              <span
+                style={{
+                  color: "#344054",
+                  fontWeight: 300,
+                }}
+                className="text-[34px] sm:text-[40px] md:text-[48px]"
+              >
+                hire.ai
               </span>
             </h2>
 
+            {/* Description */}
             <p
               style={{
-                color: "#7C8796",
-                fontSize: "18px",
-                lineHeight: "1.7",
-                marginBottom: "18px",
-                fontFamily: "Inter, sans-serif",
+                color: "#667085",
+                fontWeight: 400,
+                lineHeight: "1.8",
               }}
+              className="text-[14px] md:text-[15px] mb-5 max-w-lg"
             >
-              A next-generation, AI-powered human resources
-              consulting firm — built for high-growth startups.
+              A next-generation, AI-powered human resources consulting
+              firm built for high-growth startups.
             </p>
 
+            {/* Address */}
             <p
               style={{
-                color: "#7C8796",
-                fontSize: "18px",
-                lineHeight: "1.7",
-                fontFamily: "Inter, sans-serif",
+                color: "#667085",
+                fontWeight: 400,
+                lineHeight: "1.8",
               }}
+              className="text-[13px] md:text-[15px]"
             >
               Door No. 38/2008, Seashore Arcade,
+              <br className="hidden sm:block" />
               Ernakulam, Kerala, India
             </p>
           </div>
 
           {/* Right Side */}
-          <div
-            style={{
-              display: "flex",
-              gap: "120px",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-14">
             {/* Contact */}
             <div>
               <h4
                 style={{
                   color: "#00285C",
-                  fontSize: "22px",
-                  fontWeight: 600,
-                  marginBottom: "22px",
-                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  letterSpacing: "1.5px",
                 }}
+                className="text-[12px] md:text-[13px] mb-4"
               >
                 CONTACT
               </h4>
 
-              <p
+              <a
+                href="mailto:contact@edenhire.ai"
                 style={{
-                  color: "#7C8796",
-                  fontSize: "18px",
-                  marginBottom: "12px",
-                  fontFamily: "Inter, sans-serif",
+                  color: "#667085",
+                  textDecoration: "none",
+                  fontWeight: 500,
                 }}
+                className="block text-[14px] md:text-[15px] mb-2 transition-all duration-300 hover:opacity-70"
               >
                 contact@edenhire.ai
-              </p>
+              </a>
 
-              <p
+              <a
+                href="https://edenhire.ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  color: "#7C8796",
-                  fontSize: "18px",
-                  fontFamily: "Inter, sans-serif",
+                  color: "#667085",
+                  textDecoration: "none",
+                  fontWeight: 400,
                 }}
+                className="block text-[14px] md:text-[15px] transition-all duration-300 hover:opacity-70"
               >
                 edenhire.ai
-              </p>
+              </a>
             </div>
 
             {/* Regions */}
@@ -124,43 +116,40 @@ const Footer = () => {
               <h4
                 style={{
                   color: "#00285C",
-                  fontSize: "22px",
-                  fontWeight: 600,
-                  marginBottom: "22px",
-                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  letterSpacing: "1.5px",
                 }}
+                className="text-[12px] md:text-[13px] mb-4"
               >
                 REGIONS
               </h4>
 
               <p
                 style={{
-                  color: "#7C8796",
-                  fontSize: "18px",
-                  marginBottom: "10px",
-                  fontFamily: "Inter, sans-serif",
+                  color: "#667085",
+                  fontWeight: 400,
                 }}
+                className="text-[14px] md:text-[15px] mb-2"
               >
                 India · Middle East
               </p>
 
               <p
                 style={{
-                  color: "#7C8796",
-                  fontSize: "18px",
-                  marginBottom: "10px",
-                  fontFamily: "Inter, sans-serif",
+                  color: "#667085",
+                  fontWeight: 400,
                 }}
+                className="text-[14px] md:text-[15px] mb-2"
               >
                 United States · Europe
               </p>
 
               <p
                 style={{
-                  color: "#7C8796",
-                  fontSize: "18px",
-                  fontFamily: "Inter, sans-serif",
+                  color: "#667085",
+                  fontWeight: 400,
                 }}
+                className="text-[14px] md:text-[15px]"
               >
                 Global Remote
               </p>
@@ -171,40 +160,29 @@ const Footer = () => {
         {/* Divider */}
         <div
           style={{
-            height: "1px",
-            backgroundColor: "#E5DDD5",
-            marginTop: "60px",
-            marginBottom: "40px",
+            backgroundColor: "#E7DED5",
           }}
+          className="h-px my-6 md:my-8"
         />
 
         {/* Bottom Section */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "20px",
-          }}
-        >
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-3 text-center md:text-left">
           <p
             style={{
-              color: "#7C8796",
-              fontSize: "17px",
-              fontFamily: "Inter, sans-serif",
+              color: "#98A2B3",
+              fontWeight: 400,
             }}
+            className="text-[12px] md:text-[13px]"
           >
             © 2024 EdenHire. All rights reserved.
           </p>
 
           <p
             style={{
-              color: "#7C8796",
-              fontSize: "17px",
-              textAlign: "center",
-              fontFamily: "Inter, sans-serif",
+              color: "#98A2B3",
+              fontWeight: 300,
             }}
+            className="text-[12px] md:text-[13px] md:text-right max-w-2xl"
           >
             HREC & Intelligent Sourcing · Proprietary 90-Day
             Scale-Safe Startup People Architecture System™

@@ -30,52 +30,47 @@ const benefits = [
 const WhyChooseSection = () => {
   return (
     <section
-      style={{
-        background: "#FFF7F0",
-        padding: "140px 0",
-      }}
+      className="bg-[#FFF7F0] py-16 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div
-        style={{
-          maxWidth: "1320px",
-          margin: "0 auto",
-          padding: "0 32px",
-        }}
+        className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10"
       >
         {/* Header */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{
-            textAlign: "center",
-            marginBottom: "90px",
-          }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <p
-            style={{
-              color: "#B57984",
-              fontSize: "18px",
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              marginBottom: "18px",
-              fontWeight: 500,
-            }}
+            className="
+              text-[#B57984]
+              text-[11px]
+              sm:text-xs
+              md:text-sm
+              tracking-[4px]
+              uppercase
+              font-semibold
+              mb-4
+            "
           >
             HOW WE WORK
           </p>
 
           <h2
-            style={{
-              color: "#00285C",
-              fontSize: "56px",
-              fontWeight: 500,
-              lineHeight: 1.1,
-              maxWidth: "900px",
-              margin: "0 auto",
-            }}
+            className="
+              text-[#00285C]
+              text-[2rem]
+              sm:text-[2.5rem]
+              md:text-[3rem]
+              lg:text-[3.4rem]
+              font-semibold
+              leading-tight
+              max-w-4xl
+              mx-auto
+            "
           >
             Four Steps. One Long Partnership.
           </h2>
@@ -84,18 +79,21 @@ const WhyChooseSection = () => {
         {/* Cards */}
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "28px",
-          }}
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            xl:grid-cols-4
+            gap-5
+            lg:gap-6
+          "
         >
           {benefits.map((item, index) => (
             <motion.div
               key={index}
               initial={{
                 opacity: 0,
-                y: 60,
+                y: 40,
               }}
               whileInView={{
                 opacity: 1,
@@ -103,64 +101,72 @@ const WhyChooseSection = () => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.12,
+                duration: 0.5,
+                delay: index * 0.08,
               }}
               whileHover={{
-                y: -10,
-                boxShadow: "0 20px 45px rgba(0,0,0,0.08)",
+                y: -8,
+                scale: 1.02,
               }}
-              style={{
-                background: "#FFFFFF",
-                border: "1px solid #E9DFD6",
-                borderRadius: "28px",
-                padding: "36px",
-                minHeight: "430px",
-                cursor: "pointer",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-              }}
+              className="
+                bg-white
+                border
+                border-[#E9DFD6]
+                rounded-2xl
+                p-5
+                sm:p-6
+                min-h-[250px]
+                shadow-[0_8px_24px_rgba(0,0,0,0.04)]
+                hover:shadow-[0_20px_40px_rgba(0,43,91,0.08)]
+                hover:border-[#D8C0B6]
+                transition-all
+                duration-300
+                cursor-pointer
+              "
             >
               <motion.div
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.08,
                 }}
                 transition={{
-                  duration: 0.3,
+                  duration: 0.25,
                 }}
               >
                 <span
-                  style={{
-                    display: "block",
-                    fontSize: "56px",
-                    fontWeight: 700,
-                    color: "#F0E3DB",
-                    lineHeight: 1,
-                    marginBottom: "28px",
-                  }}
+                  className="
+                    block
+                    text-[2.8rem]
+                    sm:text-[3.2rem]
+                    font-bold
+                    text-[#E9D8CF]
+                    leading-none
+                    mb-5
+                  "
                 >
                   {item.number}
                 </span>
               </motion.div>
 
               <h3
-                style={{
-                  color: "#00285C",
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  lineHeight: 1.45,
-                  marginBottom: "18px",
-                }}
+                className="
+                  text-[#00285C]
+                  text-base
+                  sm:text-lg
+                  font-bold
+                  leading-snug
+                  mb-3
+                "
               >
                 {item.title}
               </h3>
 
               <p
-                style={{
-                  color: "#7C8796",
-                  fontSize: "16px",
-                  lineHeight: 1.85,
-                  margin: 0,
-                }}
+                className="
+                  text-[#7C8796]
+                  text-sm
+                  sm:text-[15px]
+                  leading-7
+                "
               >
                 {item.description}
               </p>

@@ -17,7 +17,7 @@ const faqs = [
     question:
       "Can EdenHire support international hiring and compliance?",
     answer:
-      " Yes. We have deep operational expertise in India, UAE and the broader Middle East, the UK, Germany, and the United States — with continuously expanding regulatory knowledge.",
+      "Yes. We have deep operational expertise in India, UAE and the broader Middle East, the UK, Germany, and the United States — with continuously expanding regulatory knowledge.",
   },
   {
     question: "How quickly can EdenHire get started?",
@@ -29,7 +29,7 @@ const faqs = [
       "Does EdenHire replace the need for an in-house HR hire?",
     answer:
       "Not necessarily. Many clients use EdenHire as their HR function before building an internal team, while others continue to leverage us as a strategic partner alongside in-house HR professionals.",
-  }
+  },
 ];
 
 export default function FAQ() {
@@ -43,61 +43,70 @@ export default function FAQ() {
     <section
       style={{
         backgroundColor: "#FFF7F0",
-        paddingTop: "120px",
-        paddingBottom: "140px",
+        paddingTop: "80px",
+        paddingBottom: "90px",
       }}
     >
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1100px",
           margin: "0 auto",
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         }}
       >
-        {/* Heading */}
-        <div
+        {/* Header */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           style={{
             textAlign: "center",
-            marginBottom: "70px",
+            marginBottom: "50px",
           }}
         >
           <p
             style={{
               color: "#B57984",
-              fontSize: "20px",
-              letterSpacing: "4px",
+              fontSize: "13px",
+              letterSpacing: "3px",
               textTransform: "uppercase",
-              marginBottom: "20px",
+              marginBottom: "12px",
+              fontWeight: 600,
               fontFamily: "Inter, sans-serif",
             }}
           >
             FAQ
           </p>
 
-          <h2
-            style={{
-              color: "#00285C",
-              fontSize: "64px",
-              fontWeight: 700,
-              lineHeight: "1.1",
-              fontFamily: "Inter, sans-serif",
-            }}
-          >
-            Frequently Asked. Honestly Answered.
-          </h2>
-        </div>
+         <h2
+    style={{
+    color: "#00285C",
+    fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+    fontWeight: 500,
+    lineHeight: 1.1,
+    fontFamily: "Inter, sans-serif",
+    maxWidth: "1400px",
+    margin: "0 auto",
+  }}
+   >
+  Frequently Asked. Honestly Answered.
+   </h2>
+        </motion.div>
 
         {/* FAQ Card */}
+
         <div
           style={{
-            maxWidth: "900px",
+            maxWidth: "850px",
             margin: "0 auto",
             backgroundColor: "#FFFFFF",
             border: "1px solid #EFE7E0",
-            borderRadius: "24px",
+            borderRadius: "22px",
             overflow: "hidden",
-            boxShadow: "0 8px 30px rgba(0,0,0,0.04)",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
           }}
         >
           {faqs.map((faq, index) => (
@@ -108,12 +117,19 @@ export default function FAQ() {
                   width: "100%",
                   background: "transparent",
                   border: "none",
-                  padding: "30px 32px",
+                  padding: "22px 24px",
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
                   cursor: "pointer",
                   textAlign: "left",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#FCF8F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
                 }}
               >
                 <span
@@ -122,26 +138,32 @@ export default function FAQ() {
                       openIndex === index
                         ? "#B57984"
                         : "#00285C",
-                    fontSize: "20px",
-                    fontWeight: 500,
-                    lineHeight: "1.4",
+                    fontSize: "clamp(14px,2vw,16px)",
+                    fontWeight: 600,
+                    lineHeight: "1.5",
                     fontFamily: "Inter, sans-serif",
+                    paddingRight: "12px",
                   }}
                 >
                   {faq.question}
                 </span>
 
-                <span
+                <motion.span
+                  animate={{
+                    rotate: openIndex === index ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.25 }}
                   style={{
-                    fontSize: "30px",
+                    fontSize: "24px",
                     color: "#8C8C8C",
-                    minWidth: "30px",
+                    minWidth: "24px",
                     textAlign: "center",
                     lineHeight: 1,
+                    fontWeight: 300,
                   }}
                 >
                   {openIndex === index ? "−" : "+"}
-                </span>
+                </motion.span>
               </button>
 
               <AnimatePresence>
@@ -168,15 +190,16 @@ export default function FAQ() {
                   >
                     <div
                       style={{
-                        padding: "0 32px 28px",
+                        padding: "0 24px 22px",
                       }}
                     >
                       <p
                         style={{
                           color: "#7C8796",
-                          fontSize: "17px",
-                          lineHeight: "1.9",
+                          fontSize: "clamp(13px,2vw,15px)",
+                          lineHeight: "1.8",
                           fontFamily: "Inter, sans-serif",
+                          margin: 0,
                         }}
                       >
                         {faq.answer}
@@ -191,7 +214,7 @@ export default function FAQ() {
                   style={{
                     height: "1px",
                     backgroundColor: "#EFE7E0",
-                    margin: "0 32px",
+                    margin: "0 24px",
                   }}
                 />
               )}
