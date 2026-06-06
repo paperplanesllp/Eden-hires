@@ -47,11 +47,7 @@ const RoleApplication = () => {
         payload.append(key, value);
       });
 
-      const res = await api.post("/api/job", payload, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const res = await api.post("/api/job", payload);
 
       if (res.data.success) {
         alert(
