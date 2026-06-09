@@ -160,7 +160,7 @@ const Footer = () => {
             }}
             className="text-[12px] md:text-[13px]"
           >
-            © 2024 EdenHire. All rights reserved.
+            © 2024 edenhire.ai All rights reserved.
           </p>
 
           <p

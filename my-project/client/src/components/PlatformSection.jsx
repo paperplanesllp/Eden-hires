@@ -55,7 +55,7 @@ const platformCards = [
 
 const PlatformSection = () => {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+    <section className="bg-white py-14 sm:py-20 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div
@@ -69,13 +69,13 @@ const PlatformSection = () => {
             The Platform
           </p>
 
- <h2 className="leading-tight mb-5 flex flex-wrap items-end gap-1">
+ <h2 className="leading-tight mb-5 flex flex-wrap items-end justify-center gap-x-1 gap-y-2 text-center">
   <span
     style={{
       color: "#B57984", // keep existing color
-      fontSize: "clamp(60px, 10vw, 110px)",
+      fontSize: "clamp(48px, 13vw, 104px)",
       fontWeight: 600,
-      letterSpacing: "-6px",
+      letterSpacing: 0,
       lineHeight: 1,
     }}
   >
@@ -85,9 +85,9 @@ const PlatformSection = () => {
   <span
     style={{
       color: "#00285C", // keep existing color
-      fontSize: "clamp(60px, 10vw, 110px)",
+      fontSize: "clamp(48px, 13vw, 104px)",
       fontWeight: 500,
-      letterSpacing: "-6px",
+      letterSpacing: 0,
       lineHeight: 1,
     }}
   >
@@ -97,9 +97,9 @@ const PlatformSection = () => {
   <span
     style={{
       color: "#00285C", // keep existing color
-      fontSize: "clamp(28px, 4vw, 48px)",
+      fontSize: "clamp(24px, 6vw, 46px)",
       fontWeight: 500,
-      marginBottom: "10px",
+      marginBottom: "0.12em",
       lineHeight: 1,
     }}
   >
@@ -109,9 +109,12 @@ const PlatformSection = () => {
   <span
     style={{
       color: "#00285C",
-      fontSize: "clamp(18px, 2vw, 32px)",
+      display: "block",
+      flexBasis: "100%",
+      color: "#00285C",
+      fontSize: "clamp(20px, 5vw, 32px)",
       fontWeight: 400,
-      marginLeft: "12px",
+      marginLeft: 0,
     }}
   >
     — Eight Intelligences.
