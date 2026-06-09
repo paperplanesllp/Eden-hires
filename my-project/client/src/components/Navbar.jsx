@@ -50,15 +50,14 @@ const Navbar = () => {
             className="flex items-center"
             style={{ textDecoration: "none" }}
           >
-            <img
-              src={logo}
-              alt="Eden Hire AI logo"
-              style={{
-                height: "220px",
-                width: "auto",
-                objectFit: "contain",
-              }}
-            />
+           <img
+  src={logo}
+  alt="Eden Hire AI logo"
+  className="w-auto object-contain"
+  style={{
+    height: window.innerWidth < 640 ? "60px" : "220px",
+  }}
+/>
           </Link>
 
           {/* Desktop Menu */}
