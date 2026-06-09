@@ -35,7 +35,7 @@ const Navbar = () => {
             "Inter, Manrope, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
-        <div className="max-w-[1420px] mx-auto h-[78px] lg:h-[88px] px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto h-[78px] lg:h-[88px] px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
@@ -162,8 +162,10 @@ const Navbar = () => {
               style={{
                 backgroundColor: "#B57984",
                 color: "#FFFFFF",
-                width: "145px",
+                width: "100%",
+                maxWidth: "145px",
                 height: "44px",
+                padding: "0 20px",
                 borderRadius: "999px",
                 fontSize: "15px",
                 fontWeight: 600,

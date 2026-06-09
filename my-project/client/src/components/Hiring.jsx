@@ -241,7 +241,7 @@ const Hiring = () => {
           <div className="flex justify-center mt-4">
             <button
               type="submit"
-              className="w-full sm:w-[340px] h-12 sm:h-14 rounded-full bg-[#B57984] text-white font-semibold"
+              className="w-full max-w-[340px] h-12 sm:h-14 rounded-full bg-[#B57984] text-white font-semibold"
             >
               Request a Discovery Call →
             </button>

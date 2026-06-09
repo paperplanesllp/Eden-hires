@@ -21,29 +21,10 @@ const cards = [
 
 const ProblemSection = () => {
   return (
-    <section
-      style={{
-        backgroundColor: "#FFF7F0",
-        paddingTop: "100px",
-        paddingBottom: "120px",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1350px",
-          margin: "0 auto",
-          paddingLeft: "40px",
-          paddingRight: "40px",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: "80px",
-            alignItems: "center",
-          }}
-        >
+    <section className="bg-[#FFF7F0] py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
           {/* Left Side */}
 
           <motion.div
@@ -67,15 +48,8 @@ const ProblemSection = () => {
             </p>
 
             <motion.h2
-              style={{
-                color: "#00285C",
-                fontSize: "64px",
-                fontWeight: 700,
-                lineHeight: "0.95",
-                letterSpacing: "-2px",
-                marginBottom: "35px",
-                fontFamily: "Inter, sans-serif",
-              }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-[#00285C] font-bold leading-tight tracking-tight mb-9"
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               <motion.span
                 style={{ display: "block" }}
@@ -106,13 +80,8 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
-              style={{
-                color: "#7C8796",
-                fontSize: "17px",
-                lineHeight: "1.9",
-                marginBottom: "26px",
-                fontFamily: "Inter, sans-serif",
-              }}
+              className="text-base md:text-lg text-[#7C8796] leading-8 mb-6"
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               People-related problems — poor hiring, cultural dysfunction,
               compliance failures, and the departure of key talent —
@@ -132,13 +101,8 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.45 }}
               viewport={{ once: true }}
-              style={{
-                color: "#7C8796",
-                fontSize: "17px",
-                lineHeight: "1.9",
-                marginBottom: "26px",
-                fontFamily: "Inter, sans-serif",
-              }}
+              className="text-base md:text-lg text-[#7C8796] leading-8 mb-6"
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               Traditional HR consulting firms were built for enterprise
               clients. Their methodologies are too slow, their frameworks
@@ -151,12 +115,8 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
-              style={{
-                color: "#7C8796",
-                fontSize: "17px",
-                lineHeight: "1.9",
-                fontFamily: "Inter, sans-serif",
-              }}
+              className="text-base md:text-lg text-[#7C8796] leading-8"
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               EdenHire occupies the space neither can fill — a full-spectrum
               HR partner combining enterprise-grade rigour with startup-native
@@ -166,13 +126,8 @@ const ProblemSection = () => {
 
           {/* Right Side */}
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "22px",
-            }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
             {cards.map((card, index) => (
               <motion.div
                 key={index}
@@ -209,32 +164,15 @@ const ProblemSection = () => {
                 }}
               >
                 <h3
-                  style={{
-                    color: "#B57984",
-                    fontSize:
-                      card.title === "Top 3"
-                        ? "48px"
-                        : card.title === "90 Days"
-                        ? "44px"
-                        : "46px",
-                    fontWeight: 700,
-                    lineHeight: 1,
-                    marginBottom: "14px",
-                    fontFamily: "Inter, sans-serif",
-                  }}
+                  className="text-4xl sm:text-5xl font-bold text-[#B57984] leading-tight mb-4"
+                  style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   {card.title}
                 </h3>
 
                 <p
-                  style={{
-                    color: "#7C8796",
-                    fontSize: "15px",
-                    lineHeight: "1.7",
-                    textAlign: "center",
-                    maxWidth: "220px",
-                    fontFamily: "Inter, sans-serif",
-                  }}
+                  className="text-sm sm:text-base leading-7 text-[#7C8796] text-center"
+                  style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   {card.text}
                 </p>

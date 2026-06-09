@@ -41,20 +41,10 @@ export default function FAQ() {
 
   return (
     <section
-      style={{
-        backgroundColor: "#FFF7F0",
-        paddingTop: "80px",
-        paddingBottom: "90px",
-      }}
+      className="bg-[#FFF7F0] py-20 overflow-hidden"
     >
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+
         {/* Header */}
 
         <motion.div
@@ -82,33 +72,17 @@ export default function FAQ() {
           </p>
 
          <h2
-    style={{
-    color: "#00285C",
-    fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
-    fontWeight: 500,
-    lineHeight: 1.1,
-    fontFamily: "Inter, sans-serif",
-    maxWidth: "1400px",
-    margin: "0 auto",
-  }}
-   >
-  Frequently Asked. Honestly Answered.
-   </h2>
+            className="mx-auto text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-[#00285C] max-w-4xl"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Frequently Asked. Honestly Answered.
+          </h2>
         </motion.div>
 
         {/* FAQ Card */}
 
-        <div
-          style={{
-            maxWidth: "850px",
-            margin: "0 auto",
-            backgroundColor: "#FFFFFF",
-            border: "1px solid #EFE7E0",
-            borderRadius: "22px",
-            overflow: "hidden",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-          }}
-        >
+        <div className="max-w-3xl mx-auto overflow-hidden rounded-[22px] border border-[#EFE7E0] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+
           {faqs.map((faq, index) => (
             <div key={index}>
               <button

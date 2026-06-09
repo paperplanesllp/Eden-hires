@@ -59,7 +59,7 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-center justify-center gap-4 lg:flex-row"
         >
           {/* Hiring Button */}
           <motion.button
@@ -73,7 +73,8 @@ const CTASection = () => {
             onClick={() => navigate("/hiring")}
             className="
               h-12
-              w-52
+              w-full
+              max-w-[260px]
               rounded-full
               bg-[#B57984]
               text-white
@@ -99,7 +100,7 @@ const CTASection = () => {
               scale: 0.96,
             }}
             onClick={() => navigate("/role")}
-            className="h-12 w-64 rounded-full border border-white/20  bg-white/5  text-white  font-medium  backdrop-blur-sm
+            className="h-12 w-full max-w-[300px] rounded-full border border-white/20 bg-white/5 text-white font-medium backdrop-blur-sm
               transition-all
               duration-300
               hover:bg-white/10

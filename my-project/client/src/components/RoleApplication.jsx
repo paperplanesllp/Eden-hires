@@ -80,14 +80,7 @@ const RoleApplication = () => {
   };
 
   return (
-    <div
-      style={{
-        background: "#F8F3EE",
-        minHeight: "100vh",
-        paddingTop: "40px",
-        paddingBottom: "80px",
-      }}
-    >
+    <div className="min-h-screen bg-[#F8F3EE] py-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Bar */}
         <div className="flex flex-wrap items-center gap-4 mb-8">
@@ -136,11 +129,10 @@ const RoleApplication = () => {
         </h1>
 
         <p
-          className="mt-5 text-lg md:text-xl"
+          className="mt-5 text-lg md:text-xl max-w-3xl"
           style={{
             color: "#7A7A7A",
             lineHeight: 1.7,
-            maxWidth: "900px",
           }}
         >
           Share a little about yourself and a talent expert from
@@ -338,14 +330,9 @@ const RoleApplication = () => {
 
           <button
             type="submit"
-            className="w-full md:w-[420px] h-[60px] mt-8 block mx-auto"
+            className="w-full max-w-[420px] h-14 mt-8 block mx-auto rounded-full bg-[#B57984] text-white text-lg font-semibold"
             style={{
-              background: "#B57984",
-              color: "#FFF",
               border: "none",
-              borderRadius: "999px",
-              fontSize: "20px",
-              fontWeight: 600,
             }}
           >
             Submit My Profile

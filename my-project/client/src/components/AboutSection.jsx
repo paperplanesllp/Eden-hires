@@ -226,7 +226,7 @@ const AboutSection = () => {
 
         {/* Principles */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4 mt-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-14">
           {principles.map((item, index) => (
             <motion.div
               key={index}
