@@ -54,28 +54,25 @@ const Hero = () => {
             }}
             style={{
               marginBottom: "40px",
-              width: "100%",
             }}
           >
             <h1
               style={{
                 margin: 0,
                 display: "flex",
+                alignItems: "flex-end",
                 justifyContent: "center",
-                alignItems: "baseline",
-                flexWrap: "nowrap",
-                whiteSpace: "nowrap",
                 lineHeight: 1,
                 fontFamily: "Manrope, sans-serif",
-                textAlign: "center",
+                flexWrap: "wrap",
               }}
             >
               <span
                 style={{
                   color: "#C98792",
-                  fontSize: "clamp(48px, 12vw, 110px)",
+                  fontSize: "clamp(60px, 10vw, 110px)",
                   fontWeight: 600,
-                  letterSpacing: "-0.06em",
+                  letterSpacing: "-6px",
                 }}
               >
                 eden
@@ -84,9 +81,9 @@ const Hero = () => {
               <span
                 style={{
                   color: "#F5EFE8",
-                  fontSize: "clamp(48px, 12vw, 110px)",
+                  fontSize: "clamp(60px, 10vw, 110px)",
                   fontWeight: 300,
-                  letterSpacing: "-0.06em",
+                  letterSpacing: "-6px",
                 }}
               >
                 hire
@@ -95,10 +92,9 @@ const Hero = () => {
               <span
                 style={{
                   color: "#F5EFE8",
-                  fontSize: "clamp(16px, 4vw, 40px)",
+                  fontSize: "clamp(28px,4vw,48px)",
                   fontWeight: 400,
-                  marginLeft: "2px",
-                  transform: "translateY(-0.15em)",
+                  marginBottom: "10px",
                 }}
               >
                 .ai
@@ -141,7 +137,7 @@ const Hero = () => {
                 style={{
                   display: "block",
                   color: "#F5EFE8",
-                  fontSize: "clamp(28px,7vw,60px)",
+                  fontSize: "clamp(38px,5vw,60px)",
                   fontWeight: 300,
                   letterSpacing: "-2px",
                 }}
@@ -153,7 +149,7 @@ const Hero = () => {
                 style={{
                   display: "block",
                   color: "#C98792",
-                  fontSize: "clamp(28px,7vw,60px)",
+                  fontSize: "clamp(38px,5vw,60px)",
                   fontWeight: 300,
                   letterSpacing: "-2px",
                   marginTop: "10px",
@@ -197,9 +193,15 @@ const Hero = () => {
               duration: 0.8,
             }}
           >
+            {/* Hiring Button */}
             <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{
+                scale: 1.03,
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.98,
+              }}
               onClick={() => navigate("/hiring")}
               style={{
                 width: "100%",
@@ -220,9 +222,15 @@ const Hero = () => {
               I'm Hiring →
             </motion.button>
 
+            {/* Role Button */}
             <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{
+                scale: 1.03,
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.98,
+              }}
               onClick={() => navigate("/role")}
               className="flex items-center justify-center gap-3"
               style={{

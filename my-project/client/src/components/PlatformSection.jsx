@@ -69,18 +69,51 @@ const PlatformSection = () => {
             The Platform
           </p>
 
-          <h2 className="leading-tight mb-5">
+ <h2 className="leading-tight mb-5 flex flex-wrap items-end gap-1">
   <span
-    className="text-[#B57984] text-[2.3rem] sm:text-[2.8rem] md:text-[3.3rem] lg:text-[3.8rem] font-bold">
+    style={{
+      color: "#B57984", // keep existing color
+      fontSize: "clamp(60px, 10vw, 110px)",
+      fontWeight: 600,
+      letterSpacing: "-6px",
+      lineHeight: 1,
+    }}
+  >
     eden
   </span>
 
-  <span className="text-[#00285C] text-[1.8rem] sm:text-[2.1rem] md:text-[2.5rem] lg:text-[2.8rem] font-medium">
-    hire.ai
+  <span
+    style={{
+      color: "#00285C", // keep existing color
+      fontSize: "clamp(60px, 10vw, 110px)",
+      fontWeight: 300,
+      letterSpacing: "-6px",
+      lineHeight: 1,
+    }}
+  >
+    hire
   </span>
 
   <span
-    className="text-[#00285C] text-[1.3rem] sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.9rem] font-normal ml-3">
+    style={{
+      color: "#00285C", // keep existing color
+      fontSize: "clamp(28px, 4vw, 48px)",
+      fontWeight: 400,
+      marginBottom: "10px",
+      lineHeight: 1,
+    }}
+  >
+    .ai
+  </span>
+
+  <span
+    style={{
+      color: "#00285C",
+      fontSize: "clamp(18px, 2vw, 32px)",
+      fontWeight: 400,
+      marginLeft: "12px",
+    }}
+  >
     — Eight Intelligences.
   </span>
 </h2>
@@ -95,7 +128,7 @@ const PlatformSection = () => {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {platformCards.map((item, index) => {
             const Icon = item.icon;
 

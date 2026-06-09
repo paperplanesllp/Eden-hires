@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/edenlogo.PNG";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,8 +22,11 @@ const Navbar = () => {
   return (
     <header
       style={{
-        position: "sticky",
+        position: "fixed",
         top: 0,
+        left: 0,
+        right: 0,
+        width: "100%",
         zIndex: 99999,
         backgroundColor: "#FFF7F0",
         backdropFilter: "blur(10px)",
@@ -46,47 +50,15 @@ const Navbar = () => {
             className="flex items-center"
             style={{ textDecoration: "none" }}
           >
-            <div
+            <img
+              src={logo}
+              alt="Eden Hire AI logo"
               style={{
-                backgroundColor: "#FFFFFF",
-                padding: "6px 12px",
-                borderRadius: "4px",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                height: "220px",
+                width: "auto",
+                objectFit: "contain",
               }}
-            >
-              <h1
-                style={{
-                  margin: 0,
-                  display: "flex",
-                  alignItems: "flex-start",
-                  lineHeight: 1,
-                  fontFamily: "Inter, sans-serif",
-                }}
-              >
-                <span
-                  style={{
-                    color: "#B57984",
-                    fontSize: "clamp(26px,4vw,36px)",
-                    fontWeight: 800,
-                    letterSpacing: "-2px",
-                  }}
-                >
-                  eden
-                </span>
-
-                <span
-                  style={{
-                    color: "#344054",
-                    fontSize: "clamp(24px,4vw,34px)",
-                    fontWeight: 400,
-                    letterSpacing: "-1px",
-                    marginTop: "3px",
-                  }}
-                >
-                  hire.ai
-                </span>
-              </h1>
-            </div>
+            />
           </Link>
 
           {/* Desktop Menu */}

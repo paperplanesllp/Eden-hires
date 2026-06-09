@@ -12,34 +12,20 @@ const Footer = () => {
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-14">
           {/* Left Content */}
-          <div className="max-w-xl">
+          <div className="max-w-2xl">
             {/* Logo */}
-            <h2
+            <img
+              src="/edenlogo.PNG"
+              alt="EdenHire AI"
               style={{
-                lineHeight: 1,
-                marginBottom: "20px",
+                height: "120px",
+                width: "auto",
+                maxWidth: "300px",
+                objectFit: "contain",
+                display: "block",
+                marginBottom: "25px",
               }}
-            >
-              <span
-                style={{
-                  color: "#B57984",
-                  fontWeight: 800,
-                }}
-                className="text-[34px] sm:text-[40px] md:text-[48px]"
-              >
-                eden
-              </span>
-
-              <span
-                style={{
-                  color: "#344054",
-                  fontWeight: 300,
-                }}
-                className="text-[34px] sm:text-[40px] md:text-[48px]"
-              >
-                hire.ai
-              </span>
-            </h2>
+            />
 
             {/* Description */}
             <p
