@@ -69,7 +69,7 @@ const PlatformSection = () => {
             The Platform
           </p>
 
- <h2 className="leading-tight mb-5 flex flex-wrap items-end justify-center gap-x-1 gap-y-2 text-center">
+ <h2 className="platform-title leading-tight mb-5 flex flex-wrap items-end justify-center gap-x-1 gap-y-2 text-center">
   <span
     style={{
       color: "#B57984", // keep existing color

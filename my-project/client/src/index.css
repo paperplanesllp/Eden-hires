@@ -28,11 +28,48 @@ body {
 
 @media (min-width: 1024px) {
   body {
-    padding-top: 110px;
+    padding-top: 88px;
   }
 }
 
 img, picture, video, canvas, svg {
   max-width: 100%;
   height: auto;
+}
+
+.platform-title > span:nth-child(1),
+.platform-title > span:nth-child(2) {
+  font-size: clamp(38px, 11vw, 52px) !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+}
+
+.platform-title > span:nth-child(3) {
+  font-size: clamp(19px, 5.2vw, 25px) !important;
+  margin-bottom: 0.14em !important;
+}
+
+.platform-title > span:nth-child(4) {
+  flex-basis: 100% !important;
+  margin-left: 0 !important;
+  font-size: clamp(18px, 4.8vw, 24px) !important;
+}
+
+@media (min-width: 1024px) {
+  .platform-title > span:nth-child(1),
+  .platform-title > span:nth-child(2) {
+    font-size: clamp(60px, 10vw, 110px) !important;
+    letter-spacing: -6px !important;
+  }
+
+  .platform-title > span:nth-child(3) {
+    font-size: clamp(28px, 4vw, 48px) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .platform-title > span:nth-child(4) {
+    flex-basis: auto !important;
+    margin-left: 12px !important;
+    font-size: clamp(18px, 2vw, 32px) !important;
+  }
 }
