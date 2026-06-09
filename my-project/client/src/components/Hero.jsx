@@ -44,122 +44,70 @@ const Hero = () => {
             STRATEGIC HR. BUILT FOR BUILDERS.
           </motion.p>
 
+          
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            style={{
-              marginBottom: "40px",
-            }}
-          >
-            <h1
-              style={{
-                margin: 0,
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-                lineHeight: 1,
-                fontFamily: "Manrope, sans-serif",
-                flexWrap: "wrap",
-              }}
-            >
-              <span
-                style={{
-                  color: "#C98792",
-                  fontSize: "clamp(60px, 10vw, 110px)",
-                  fontWeight: 600,
-                  letterSpacing: "-6px",
-                }}
-              >
-                eden
-              </span>
+<motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{
+    duration: 1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  style={{
+    marginBottom: "40px",
+  }}
+>
+  <h1
+    style={{
+      margin: 0,
+      display: "flex",
+      alignItems: "baseline",
+      justifyContent: "center",
+      lineHeight: 1,
+      fontFamily: "Manrope, sans-serif",
+      flexWrap: "nowrap",
+      whiteSpace: "nowrap",
+    }}
+  >
+    <span
+      style={{
+        color: "#C98792",
+        fontSize: "clamp(42px, 11vw, 110px)",
+        fontWeight: 600,
+        letterSpacing: "clamp(-1px, -0.3vw, -6px)",
+        lineHeight: 1,
+      }}
+    >
+      eden
+    </span>
 
-              <span
-                style={{
-                  color: "#F5EFE8",
-                  fontSize: "clamp(60px, 10vw, 110px)",
-                  fontWeight: 300,
-                  letterSpacing: "-6px",
-                }}
-              >
-                hire
-              </span>
+    <span
+      style={{
+        color: "#F5EFE8",
+        fontSize: "clamp(42px, 11vw, 110px)",
+        fontWeight: 300,
+        letterSpacing: "clamp(-1px, -0.3vw, -6px)",
+        lineHeight: 1,
+      }}
+    >
+      hire
+    </span>
 
-              <span
-                style={{
-                  color: "#F5EFE8",
-                  fontSize: "clamp(28px,4vw,48px)",
-                  fontWeight: 400,
-                  marginBottom: "10px",
-                }}
-              >
-                .ai
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "min(480px,80vw)" }}
-            transition={{
-              delay: 0.3,
-              duration: 1,
-            }}
-            style={{
-              height: "1px",
-              background: "#C98792",
-              marginBottom: "50px",
-            }}
-          />
-
-          {/* Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.4,
-              duration: 0.8,
-            }}
-          >
-            <h2
-              style={{
-                margin: 0,
-                fontFamily: "Manrope, sans-serif",
-                lineHeight: "1.1",
-              }}
-            >
-              <span
-                style={{
-                  display: "block",
-                  color: "#F5EFE8",
-                  fontSize: "clamp(38px,5vw,60px)",
-                  fontWeight: 300,
-                  letterSpacing: "-2px",
-                }}
-              >
-                You build the vision.
-              </span>
-
-              <span
-                style={{
-                  display: "block",
-                  color: "#C98792",
-                  fontSize: "clamp(38px,5vw,60px)",
-                  fontWeight: 300,
-                  letterSpacing: "-2px",
-                  marginTop: "10px",
-                }}
-              >
-                We build the team.
-              </span>
-            </h2>
-          </motion.div>
-
+    <span
+      style={{
+        color: "#F5EFE8",
+        fontSize: "clamp(22px, 5.5vw, 48px)",
+        fontWeight: 400,
+        lineHeight: 1,
+        marginLeft: "2px",
+        position: "relative",
+        top: "-0.08em",
+      }}
+    >
+      .ai
+    </span>
+  </h1>
+</motion.div>
           {/* Description */}
           <motion.p
             initial={{ opacity: 0 }}
