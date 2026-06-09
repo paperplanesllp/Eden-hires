@@ -135,6 +135,48 @@ const Hero = () => {
   }}
 />
 </motion.div>
+{/* Headline */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    delay: 0.7,
+    duration: 0.9,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  style={{
+    marginTop: "48px",
+    marginBottom: "24px",
+    textAlign: "center",
+    lineHeight: 1.15,
+  }}
+>
+  <p
+    style={{
+      margin: 0,
+      color: "#F5EFE8",
+      fontSize: "clamp(38px, 6vw, 82px)",
+      fontWeight: 400,
+      fontFamily: "Manrope, sans-serif",
+      letterSpacing: "-0.05em",
+    }}
+  >
+    You build the vision.
+  </p>
+
+  <p
+    style={{
+      margin: "8px 0 0",
+      color: "#C98792",
+      fontSize: "clamp(38px, 6vw, 82px)",
+      fontWeight: 400,
+      fontFamily: "Manrope, sans-serif",
+      letterSpacing: "-0.05em",
+    }}
+  >
+    We build the team.
+  </p>
+</motion.div>
           {/* Description */}
           <motion.p
             initial={{ opacity: 0 }}
