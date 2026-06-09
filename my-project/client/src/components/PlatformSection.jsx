@@ -86,7 +86,7 @@ const PlatformSection = () => {
     style={{
       color: "#00285C", // keep existing color
       fontSize: "clamp(60px, 10vw, 110px)",
-      fontWeight: 300,
+      fontWeight: 500,
       letterSpacing: "-6px",
       lineHeight: 1,
     }}
@@ -98,7 +98,7 @@ const PlatformSection = () => {
     style={{
       color: "#00285C", // keep existing color
       fontSize: "clamp(28px, 4vw, 48px)",
-      fontWeight: 400,
+      fontWeight: 500,
       marginBottom: "10px",
       lineHeight: 1,
     }}
