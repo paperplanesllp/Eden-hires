@@ -43,9 +43,7 @@ const Hero = () => {
           >
             STRATEGIC HR. BUILT FOR BUILDERS.
           </motion.p>
-
-          
-          {/* Logo */}
+{/* Logo */}
 <motion.div
   initial={{ opacity: 0, scale: 0.95 }}
   animate={{ opacity: 1, scale: 1 }}
@@ -55,6 +53,9 @@ const Hero = () => {
   }}
   style={{
     marginBottom: "40px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   }}
 >
   <h1
@@ -69,36 +70,36 @@ const Hero = () => {
       whiteSpace: "nowrap",
     }}
   >
+    {/* eden */}
     <span
       style={{
         color: "#C98792",
         fontSize: "clamp(42px, 11vw, 110px)",
         fontWeight: 600,
         letterSpacing: "clamp(-1px, -0.3vw, -6px)",
-        lineHeight: 1,
       }}
     >
       eden
     </span>
 
+    {/* hire */}
     <span
       style={{
         color: "#F5EFE8",
         fontSize: "clamp(42px, 11vw, 110px)",
         fontWeight: 300,
         letterSpacing: "clamp(-1px, -0.3vw, -6px)",
-        lineHeight: 1,
       }}
     >
       hire
     </span>
 
+    {/* .ai */}
     <span
       style={{
         color: "#F5EFE8",
         fontSize: "clamp(22px, 5.5vw, 48px)",
         fontWeight: 400,
-        lineHeight: 1,
         marginLeft: "2px",
         position: "relative",
         top: "-0.08em",
@@ -107,6 +108,32 @@ const Hero = () => {
       .ai
     </span>
   </h1>
+
+  {/* Underline */}
+ {/* Underline */}
+<motion.div
+  initial={{
+    scaleX: 0,
+    opacity: 0,
+  }}
+  animate={{
+    scaleX: 1,
+    opacity: 1,
+  }}
+  transition={{
+    delay: 0.4,
+    duration: 0.8,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  style={{
+    width: "clamp(180px, 35vw, 390px)",
+    height: "2px",
+    background: "#C98792",
+    marginTop: "28px",
+    borderRadius: "999px",
+    transformOrigin: "center",
+  }}
+/>
 </motion.div>
           {/* Description */}
           <motion.p
