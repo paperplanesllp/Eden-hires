@@ -231,7 +231,7 @@ const Hiring = () => {
           <div className="flex justify-center mt-4">
             <button
               type="submit"
-              className="w-full max-w-[340px] h-12 sm:h-14 rounded-full bg-[#B57984] text-white font-semibold"
+              className="w-full max-w-[340px] h-12 sm:h-14 rounded-full bg-[#B57984] text-white font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(181,121,132,0.22)]"
             >
               Request a Discovery Call →
             </button>
