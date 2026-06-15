@@ -1,7 +1,6 @@
 import { ArrowLeft, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import api from "../services/api";
 
 const RoleApplication = () => {
   const navigate = useNavigate();
@@ -37,43 +36,27 @@ const RoleApplication = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const payload = new FormData();
+    alert("Profile submitted successfully!");
 
-      Object.entries(formData).forEach(([key, value]) => {
-        payload.append(key, value);
-      });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      currentRole: "",
+      experience: "",
+      workPreference: "",
+      skills: "",
+      location: "",
+      linkedin: "",
+      roleLookingFor: "",
+      resume: null,
+    });
 
-      const res = await api.post("/api/job", payload);
-
-      if (res.data.success) {
-        alert("Profile submitted successfully!");
-
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          currentRole: "",
-          experience: "",
-          workPreference: "",
-          skills: "",
-          location: "",
-          linkedin: "",
-          roleLookingFor: "",
-          resume: null,
-        });
-
-        if (resumeInputRef.current) {
-          resumeInputRef.current.value = "";
-        }
-      }
-    } catch (error) {
-      console.error(error);
-
-      alert("Failed to submit profile");
+    if (resumeInputRef.current) {
+      resumeInputRef.current.value = "";
     }
   };
 

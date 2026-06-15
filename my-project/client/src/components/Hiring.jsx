@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../services/api";
 
 const Hiring = () => {
   const formRef = useRef(null);
@@ -23,7 +22,7 @@ const Hiring = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = formRef.current;
@@ -45,27 +44,18 @@ const Hiring = () => {
       return;
     }
 
-    try {
-      const response = await api.post("/api/contact", formData);
+    alert("Discovery call request submitted successfully!");
 
-      if (response.data.success) {
-        alert("Discovery call request submitted successfully!");
-
-        setFormData({
-          name: "",
-          company: "",
-          email: "",
-          phone: "",
-          role: "",
-          teamSize: "",
-          fundingStage: "",
-          challenge: "",
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Failed to submit form.");
-    }
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      role: "",
+      teamSize: "",
+      fundingStage: "",
+      challenge: "",
+    });
   };
 
   return (
