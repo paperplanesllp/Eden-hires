@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/edenlogo.PNG";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
-  const scrollToSection = (id) => {
+  const scrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
 
     if (section) {
@@ -17,7 +18,19 @@ const Navbar = () => {
     }
 
     setMobileOpen(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname !== "/" || !location.hash) {
+      return;
+    }
+
+    const sectionId = location.hash.slice(1);
+
+    window.requestAnimationFrame(() => {
+      scrollToSection(sectionId);
+    });
+  }, [location.pathname, location.hash, scrollToSection]);
 
   return (
     <header
@@ -43,10 +56,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("home");
-            }}
+            onClick={() => setMobileOpen(false)}
             className="flex items-center"
             style={{ textDecoration: "none" }}
           >
@@ -63,11 +73,8 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-10">
             <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("about");
-              }}
+              to="/#about"
+              onClick={() => setMobileOpen(false)}
               style={{
                 color: "#6B7280",
                 fontSize: "16px",
@@ -80,11 +87,8 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("services");
-              }}
+              to="/#services"
+              onClick={() => setMobileOpen(false)}
               style={{
                 color: "#6B7280",
                 fontSize: "16px",
@@ -96,11 +100,8 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("platform");
-              }}
+              to="/#platform"
+              onClick={() => setMobileOpen(false)}
               style={{
                 color: "#6B7280",
                 fontSize: "16px",
@@ -112,11 +113,8 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("faq");
-              }}
+              to="/#faq"
+              onClick={() => setMobileOpen(false)}
               style={{
                 color: "#6B7280",
                 fontSize: "16px",
@@ -129,6 +127,7 @@ const Navbar = () => {
 
             <Link
               to="/hiring"
+              onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: "#B57984",
@@ -175,11 +174,8 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-5">
               <Link
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("about");
-                }}
+                to="/#about"
+                onClick={() => setMobileOpen(false)}
                 style={{
                   color: "#6B7280",
                   textDecoration: "none",
@@ -191,11 +187,8 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("services");
-                }}
+                to="/#services"
+                onClick={() => setMobileOpen(false)}
                 style={{
                   color: "#6B7280",
                   textDecoration: "none",
@@ -207,11 +200,8 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("platform");
-                }}
+                to="/#platform"
+                onClick={() => setMobileOpen(false)}
                 style={{
                   color: "#6B7280",
                   textDecoration: "none",
@@ -223,11 +213,8 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("faq");
-                }}
+                to="/#faq"
+                onClick={() => setMobileOpen(false)}
                 style={{
                   color: "#6B7280",
                   textDecoration: "none",

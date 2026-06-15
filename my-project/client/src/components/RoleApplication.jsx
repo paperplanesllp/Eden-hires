@@ -50,9 +50,7 @@ const RoleApplication = () => {
       const res = await api.post("/api/job", payload);
 
       if (res.data.success) {
-        alert(
-          "Thank you for your submission. Our talent team will review your profile and reach out shortly."
-        );
+        alert("Profile submitted successfully!");
 
         setFormData({
           name: "",

@@ -49,7 +49,7 @@ const Hiring = () => {
       const response = await api.post("/api/contact", formData);
 
       if (response.data.success) {
-        alert("Form submitted successfully!");
+        alert("Discovery call request submitted successfully!");
 
         setFormData({
           name: "",
