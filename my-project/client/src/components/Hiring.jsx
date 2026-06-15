@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hiring = () => {
   const formRef = useRef(null);
@@ -21,6 +21,8 @@ const Hiring = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,8 +46,6 @@ const Hiring = () => {
       return;
     }
 
-    alert("Discovery call request submitted successfully!");
-
     setFormData({
       name: "",
       company: "",
@@ -56,6 +56,8 @@ const Hiring = () => {
       fundingStage: "",
       challenge: "",
     });
+
+    navigate("/hiring/thank-you");
   };
 
   return (

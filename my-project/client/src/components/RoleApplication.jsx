@@ -39,8 +39,6 @@ const RoleApplication = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert("Profile submitted successfully!");
-
     setFormData({
       name: "",
       email: "",
@@ -58,6 +56,8 @@ const RoleApplication = () => {
     if (resumeInputRef.current) {
       resumeInputRef.current.value = "";
     }
+
+    navigate("/role/thank-you");
   };
 
   return (
