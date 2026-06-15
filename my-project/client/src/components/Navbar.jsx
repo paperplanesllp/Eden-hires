@@ -1,12 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/edenlogo.PNG";
 
+const navItems = [
+  { id: "about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "platform", label: "Platform" },
+  { id: "faq", label: "FAQ" },
+];
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState("home");
   const location = useLocation();
   const navigate = useNavigate();
+  const pendingScrollRef = useRef(null);
 
   const scrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
@@ -16,32 +25,59 @@ const Navbar = () => {
         behavior: "smooth",
         block: "start",
       });
+      return true;
     }
 
-    setMobileOpen(false);
+    return false;
   }, []);
 
+  useEffect(() => {
+    if (location.pathname === "/" && pendingScrollRef.current) {
+      window.requestAnimationFrame(() => {
+        scrollToSection(pendingScrollRef.current);
+        pendingScrollRef.current = null;
+      });
+    }
+  }, [location.pathname, scrollToSection]);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const sectionId = location.hash ? location.hash.slice(1) : "home";
+      setActiveNav(sectionId || "home");
+    } else {
+      setActiveNav("home");
+    }
+  }, [location.pathname, location.hash]);
+
   const handleLogoClick = () => {
+    setActiveNav("home");
     setMobileOpen(false);
 
     if (location.pathname !== "/") {
       navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-    if (location.pathname !== "/" || !location.hash) {
-      return;
-    }
+  const handleNavClick = (sectionId) => {
+    setActiveNav(sectionId);
+    setMobileOpen(false);
 
-    const sectionId = location.hash.slice(1);
-
-    window.requestAnimationFrame(() => {
+    if (location.pathname !== "/") {
+      pendingScrollRef.current = sectionId;
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection(sectionId);
+        pendingScrollRef.current = null;
+      }, 100);
+    } else {
       scrollToSection(sectionId);
-    });
-  }, [location.pathname, location.hash, scrollToSection]);
+    }
+  };
 
   return (
     <header
@@ -64,8 +100,8 @@ const Navbar = () => {
         }}
       >
         <div className="w-full max-w-7xl mx-auto h-[78px] lg:h-[88px] px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
           <button
+            type="button"
             onClick={handleLogoClick}
             className="flex items-center"
             style={{
@@ -86,60 +122,24 @@ const Navbar = () => {
             />
           </button>
 
-          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-10">
-            <Link
-              to="/#about"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                color: "#6B7280",
-                fontSize: "16px",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "0.3s",
-              }}
-            >
-              About
-            </Link>
-
-            <Link
-              to="/#services"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                color: "#6B7280",
-                fontSize: "16px",
-                fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              Services
-            </Link>
-
-            <Link
-              to="/#platform"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                color: "#6B7280",
-                fontSize: "16px",
-                fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              Platform
-            </Link>
-
-            <Link
-              to="/#faq"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                color: "#6B7280",
-                fontSize: "16px",
-                fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              FAQ
-            </Link>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleNavClick(item.id)}
+                className="text-[16px] font-medium transition-colors duration-200"
+                style={{
+                  color: activeNav === item.id ? "#002B5B" : "#6B7280",
+                  textDecoration: "none",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
 
             <Link
               to="/hiring"
@@ -157,13 +157,13 @@ const Navbar = () => {
                 fontWeight: 600,
                 textDecoration: "none",
                 boxShadow: "0 4px 12px rgba(181,121,132,0.25)",
+                cursor: "pointer",
               }}
             >
               Get Started
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden"
@@ -178,7 +178,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {mobileOpen && (
           <div
             className="lg:hidden"
@@ -189,21 +188,28 @@ const Navbar = () => {
             }}
           >
             <div className="flex flex-col gap-5">
-              <Link
-                to="/#about"
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  color: "#6B7280",
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                }}
-              >
-                About
-              </Link>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => handleNavClick(item.id)}
+                  style={{
+                    color: activeNav === item.id ? "#002B5B" : "#6B7280",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    background: "transparent",
+                    border: "none",
+                    textAlign: "left",
+                    cursor: "pointer",
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
 
               <Link
-                to="/#services"
+                to="/hiring"
                 onClick={() => setMobileOpen(false)}
                 style={{
                   color: "#6B7280",
@@ -212,33 +218,7 @@ const Navbar = () => {
                   fontWeight: 500,
                 }}
               >
-                Services
-              </Link>
-
-              <Link
-                to="/#platform"
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  color: "#6B7280",
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                }}
-              >
-                Platform
-              </Link>
-
-              <Link
-                to="/#faq"
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  color: "#6B7280",
-                  textDecoration: "none",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                }}
-              >
-                FAQ
+                Get Started
               </Link>
             </div>
           </div>
