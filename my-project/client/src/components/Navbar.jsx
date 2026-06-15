@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/edenlogo.PNG";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
@@ -19,6 +20,16 @@ const Navbar = () => {
 
     setMobileOpen(false);
   }, []);
+
+  const handleLogoClick = () => {
+    setMobileOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     if (location.pathname !== "/" || !location.hash) {
@@ -54,21 +65,26 @@ const Navbar = () => {
       >
         <div className="w-full max-w-7xl mx-auto h-[78px] lg:h-[88px] px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            to="/"
-            onClick={() => setMobileOpen(false)}
+          <button
+            onClick={handleLogoClick}
             className="flex items-center"
-            style={{ textDecoration: "none" }}
+            style={{
+              textDecoration: "none",
+              background: "transparent",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
           >
-           <img
-  src={logo}
-  alt="Eden Hire AI logo"
-  className="w-auto object-contain"
-  style={{
-    height: window.innerWidth < 640 ? "60px" : "220px",
-  }}
-/>
-          </Link>
+            <img
+              src={logo}
+              alt="Eden Hire AI logo"
+              className="w-auto object-contain"
+              style={{
+                height: window.innerWidth < 640 ? "60px" : "220px",
+              }}
+            />
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-10">

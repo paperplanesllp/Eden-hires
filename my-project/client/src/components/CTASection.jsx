@@ -85,6 +85,7 @@ const CTASection = () => {
               duration-300
               hover:shadow-2xl
               hover:shadow-[#B57984]/40
+              cursor-pointer
             "
           >
             I'm Hiring →
@@ -106,6 +107,7 @@ const CTASection = () => {
               hover:bg-white/10
               hover:border-white/40
               hover:shadow-xl
+              cursor-pointer
             "
           >
             I'm Looking for a Role
