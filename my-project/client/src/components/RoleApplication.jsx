@@ -311,7 +311,7 @@ const RoleApplication = () => {
 
           <button
             type="submit"
-            className="w-full max-w-[420px] h-14 mt-8 block mx-auto rounded-full bg-[#B57984] text-white text-lg font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(181,121,132,0.22)]"
+            className="w-full max-w-[420px] h-14 mt-8 block mx-auto rounded-full bg-[#B57984] text-white text-lg font-semibold transition duration-300 ease-out cursor-pointer hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(181,121,132,0.22)]"
             style={{
               border: "none",
             }}
