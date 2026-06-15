@@ -156,16 +156,19 @@ const Hiring = () => {
 
           <div className="mb-5">
             <label className="block mb-2 text-sm font-semibold text-[#344054]">
-              ROLE(S) YOU'RE HIRING FOR *
+              Number of roles you are hiring for *
             </label>
 
             <input
               required
-              type="text"
+              type="number"
               name="role"
+              min="1"
+              step="1"
+              inputMode="numeric"
               value={formData.role}
               onChange={handleChange}
-              placeholder="e.g. Senior Engineer, Head of Sales, HR Lead"
+              placeholder="e.g. 3"
               className="w-full h-14 px-5 rounded-2xl border border-gray-300 bg-white"
             />
           </div>
