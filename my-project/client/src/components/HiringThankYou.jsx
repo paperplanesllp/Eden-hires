@@ -18,19 +18,12 @@ const HiringThankYou = () => {
           We look forward to discussing your team requirements and next steps.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex items-center justify-center">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-full bg-[#B57984] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#a15f71]"
           >
             Return to homepage
-          </Link>
-
-          <Link
-            to="/hiring"
-            className="inline-flex items-center justify-center rounded-full border border-[#B57984] px-8 py-4 text-sm font-semibold text-[#B57984] transition hover:bg-[#F8E9EB]"
-          >
-            Edit request
           </Link>
         </div>
       </div>
