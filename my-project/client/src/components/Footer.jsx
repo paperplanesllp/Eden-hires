@@ -1,4 +1,5 @@
 import logo from "../assets/edenlogo.PNG";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const contactLinks = [
@@ -16,16 +17,22 @@ const Footer = () => {
 
   return (
     <footer className="border-t-[3px] border-[#00285C] bg-[#FFF7F0] font-[Inter,Manrope,system-ui,sans-serif]">
-      <div className="mx-auto w-full max-w-7xl px-5 py-9 sm:px-6 sm:py-11 md:px-8 lg:px-10 lg:py-14">
-        <div className="grid gap-8 text-center md:grid-cols-2 md:gap-10 md:text-left lg:grid-cols-[1.45fr_0.7fr_0.85fr] lg:gap-14">
-          <div className="mx-auto flex max-w-[22rem] flex-col items-center md:mx-0 md:items-start lg:max-w-xl">
-            <img
-              src={logo}
-              alt="EdenHire.ai"
-              className="mb-4 h-auto w-[210px] object-contain sm:w-[240px] md:w-[220px] lg:w-[250px] xl:w-[270px]"
-            />
+      <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-6 md:px-8 lg:px-10 lg:py-12">
+        <div className="grid gap-9 text-center md:grid-cols-2 md:gap-10 md:text-left lg:grid-cols-[1.25fr_0.7fr_0.85fr] lg:items-start lg:gap-16">
+          <div className="mx-auto flex max-w-[24rem] flex-col items-center md:mx-0 md:items-start">
+            <Link
+              to="/"
+              aria-label="Edenhire.ai home"
+              className="mb-5 inline-flex items-center"
+            >
+              <img
+                src={logo}
+                alt="Edenhire.ai"
+                className="block h-auto w-[168px] object-contain sm:w-[184px] lg:w-[196px]"
+              />
+            </Link>
 
-            <p className="max-w-[21rem] text-[14px] leading-7 text-[#667085] sm:text-[15px] md:max-w-sm lg:max-w-md">
+            <p className="max-w-[23rem] text-[14px] leading-7 text-[#667085] sm:text-[15px]">
               A next-generation, AI-powered human resources consulting firm
               built for high-growth startups.
             </p>
@@ -39,7 +46,7 @@ const Footer = () => {
             </address>
           </div>
 
-          <div className="border-t border-[#E7DED5] pt-6 md:border-t-0 md:pt-2 lg:pt-3">
+          <div className="border-t border-[#E7DED5] pt-6 md:border-t-0 md:pt-1 lg:pt-2">
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00285C] sm:text-xs">
               Contact
             </h4>
@@ -63,7 +70,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-[#E7DED5] pt-6 md:col-span-2 md:pt-7 lg:col-span-1 lg:border-t-0 lg:pt-3">
+          <div className="border-t border-[#E7DED5] pt-6 md:col-span-2 md:pt-7 lg:col-span-1 lg:border-t-0 lg:pt-2">
             <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00285C] sm:text-xs">
               Regions
             </h4>
@@ -81,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-[#E7DED5] pt-5 sm:mt-9 md:flex md:items-center md:justify-between md:gap-8 lg:mt-11">
+        <div className="mt-9 border-t border-[#E7DED5] pt-5 sm:mt-10 md:flex md:items-center md:justify-between md:gap-8 lg:mt-12">
           <p className="text-center text-[12px] leading-5 text-[#98A2B3] md:text-left">
             © 2024 edenhire.ai. All rights reserved.
           </p>
