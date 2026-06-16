@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 
 const RoleApplication = () => {
   const navigate = useNavigate();
+  const formRef = useRef(null);
   const resumeInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const RoleApplication = () => {
     roleLookingFor: "",
     resume: null,
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,9 +39,7 @@ const RoleApplication = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const resetForm = () => {
     setFormData({
       name: "",
       email: "",
@@ -56,8 +57,83 @@ const RoleApplication = () => {
     if (resumeInputRef.current) {
       resumeInputRef.current.value = "";
     }
+  };
 
-    navigate("/role/thank-you");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = formRef.current;
+
+    if (!form) {
+      return;
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+
+      const firstInvalid = form.querySelector(":invalid");
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        firstInvalid.focus();
+      }
+
+      return;
+    }
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const apiBaseUrl = import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "";
+
+      if (!apiBaseUrl) {
+        throw new Error("Missing VITE_API_URL environment variable.");
+      }
+
+      const body = new FormData();
+      body.append("name", formData.name);
+      body.append("email", formData.email);
+      body.append("phone", formData.phone);
+      body.append("currentRole", formData.currentRole);
+      body.append("experience", formData.experience);
+      body.append("workPreference", formData.workPreference);
+      body.append("skills", formData.skills);
+      body.append("location", formData.location);
+      body.append("linkedin", formData.linkedin);
+      body.append("roleLookingFor", formData.roleLookingFor);
+
+      if (formData.resume) {
+        body.append("resume", formData.resume);
+      }
+
+      const response = await fetch(`${apiBaseUrl}/api/job`, {
+        method: "POST",
+        body,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Request failed with status ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      if (!data || data.success === false) {
+        throw new Error(data?.message || "Application submission failed.");
+      }
+
+      resetForm();
+      navigate("/role/thank-you");
+    } catch (error) {
+      console.error("Submit error", error);
+      setSubmitError(
+        "Unable to submit your profile right now. Please try again or contact support."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -121,7 +197,7 @@ const RoleApplication = () => {
           opportunities.
         </p>
 
-        <form onSubmit={handleSubmit}>
+        <form ref={formRef} onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             <div>
               <label className="block mb-2 text-sm font-semibold text-[#284A75]">
@@ -327,14 +403,19 @@ const RoleApplication = () => {
             />
           </div>
 
+          {submitError && (
+            <p className="mt-4 text-center text-red-600">{submitError}</p>
+          )}
+
           <button
             type="submit"
-            className="w-full max-w-[420px] h-14 mt-8 block mx-auto rounded-full bg-[#B57984] text-white text-lg font-semibold transition duration-300 ease-out cursor-pointer hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(181,121,132,0.22)]"
+            disabled={submitting}
+            className="w-full max-w-[420px] h-14 mt-8 block mx-auto rounded-full bg-[#B57984] text-white text-lg font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(181,121,132,0.22)] disabled:cursor-not-allowed disabled:opacity-60"
             style={{
               border: "none",
             }}
           >
-            Submit My Profile
+            {submitting ? "Submitting..." : "Submit My Profile"}
           </button>
         </form>
       </div>
