@@ -1,4 +1,4 @@
-import { ArrowLeft, Search } from "lucide-react";
+import { ArrowLeft, FileText, Search, Upload } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 
@@ -284,13 +284,31 @@ const RoleApplication = () => {
 
             <input
               ref={resumeInputRef}
+              id="resume"
               type="file"
               name="resume"
               accept=".pdf,.doc,.docx"
               onChange={handleFileChange}
               required
-              className="w-full p-4 rounded-2xl border border-gray-300 bg-white"
+              className="sr-only"
             />
+
+            <label
+              htmlFor="resume"
+              className="flex min-h-14 w-full cursor-pointer items-center justify-between gap-4 rounded-2xl border border-gray-300 bg-white px-5 py-4 transition hover:border-[#284A75] focus-within:border-[#284A75]"
+            >
+              <span className="flex min-w-0 items-center gap-3">
+                <FileText size={20} className="shrink-0 text-[#284A75]" />
+                <span
+                  className={`truncate text-base ${
+                    formData.resume ? "text-black" : "text-gray-500"
+                  }`}
+                >
+                  {formData.resume ? formData.resume.name : "Choose resume"}
+                </span>
+              </span>
+              <Upload size={20} className="shrink-0 text-[#284A75]" />
+            </label>
           </div>
 
           <div className="mt-6">
